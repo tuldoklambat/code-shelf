@@ -19,7 +19,7 @@ public class <xsl:value-of select="@ClassName"/> {
 		return <xsl:value-of select="@Name"/>;
 	}
 		
-	public <xsl:value-of select="@Type"/><xsl:text> </xsl:text>set<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>(<xsl:value-of select="@Type"/><xsl:text> </xsl:text><xsl:value-of select="@Name"/>) {
+	public void<xsl:text> </xsl:text>set<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>(<xsl:value-of select="@Type"/><xsl:text> </xsl:text><xsl:value-of select="@Name"/>) {
 		this.<xsl:value-of select="@Name"/> = <xsl:value-of select="@Name"/>;
 	}</xsl:for-each>
 }	

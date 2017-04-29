@@ -10,7 +10,6 @@
 import static org.hamcrest.CoreMatchers.*;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.After;
 
 /***
 * Created by <xsl:value-of select="@Author"/>.
@@ -26,7 +25,7 @@ public class <xsl:value-of select="@ClassName"/>Test {
 	@Test		
 	public void<xsl:text> </xsl:text>test_get<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>_should_return_the_same_value() {
 		classToTest.set<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>(<xsl:value-of select="@TestValue"/>);
-		Asset.assertThat(classToTest.get<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>(), is(<xsl:value-of select="@TestValue"/>));
+		Assert.assertThat(classToTest.get<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>(), is(<xsl:value-of select="@TestValue"/>));
 	}</xsl:for-each>
 }	
 	</xsl:template>

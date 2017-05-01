@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Fields Author="Joseph De Guzman" ClassName="employee">
-	<Field Name="id" Type="int" TestValue="1"/>
-	<Field Name="lastName" Type="String" TestValue="&quot;De Guzman&quot;"/>
-	<Field Name="firstName" Type="String" TestValue="&quot;Joseph&quot;"/>
-	<Field Name="phone" Type="String" TestValue="97268674"/>
-	<Field Name="address" Type="String" TestValue="&quot;Block 632C Punggol Drive&quot;"/>
-	<Field Name="city" Type="String" TestValue="&quot;Punggol&quot;"/>
-	<Field Name="state" Type="String" TestValue="&quot;NA&quot;"/>
-	<Field Name="country" Type="String" TestValue="&quot;Singapore&quot;"/>
-	<Field Name="postalCode" Type="int" TestValue="823632"/>
-</Fields>
+<Class Name="employee" Author="Joseph De Guzman" CreationDate="2017/05/01">
+	<Dao Command="dbo.getEmployeesByState">
+		<Parameters>
+			<Parameter Name="state" Type="String" TestValue="&quot;CA&quot;"/>
+			<Parameter Name="country" Type="String" TestValue="&quot;USA&quot;"/>
+		</Parameters>
+	</Dao>
+	<Fields>
+		<Field Name="id" Type="Integer" Column="au_id" TestValue="1"/>
+		<Field Name="lastName" Type="String" Column="au_lname" TestValue="&quot;De Guzman&quot;"/>
+		<Field Name="firstName" Type="String" Column="au_fname" TestValue="&quot;Joseph&quot;"/>
+		<Field Name="phone" Type="String" Column="phone" TestValue="&quot;97268674&quot;"/>
+		<Field Name="address" Type="String" Column="address" TestValue="&quot;Block 632C Punggol Drive&quot;"/>
+		<Field Name="city" Type="String" Column="city" TestValue="&quot;Punggol&quot;"/>
+		<Field Name="state" Type="String" Column="state" TestValue="&quot;NA&quot;"/>
+		<Field Name="country" Type="String" Column="country" TestValue="&quot;Singapore&quot;"/>
+		<Field Name="postalCode" Type="Integer" Column="postalcode" TestValue="823632"/>
+	</Fields>
+</Class>

@@ -4,16 +4,16 @@
 	<xsl:template match="/">
 		<xsl:apply-templates/>
 	</xsl:template>
-	<xsl:template match="Fields">
+	<xsl:template match="Class">
 		<xsl:param name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
 		<xsl:param name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'"/>
 /***
-* Created by <xsl:value-of select="@Author"/>.
+* Created by <xsl:value-of select="@Author"/> on <xsl:value-of select="@CreationDate"/>.
 */		
-public class <xsl:value-of select="@ClassName"/> {
-		<xsl:for-each select="Field">
+public class <xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/> {
+		<xsl:for-each select="/Class/Fields/Field">
 	private <xsl:value-of select="@Type"/><xsl:text> </xsl:text><xsl:value-of select="@Name"/>;</xsl:for-each>		
-		<xsl:for-each select="Field">
+		<xsl:for-each select="/Class/Fields/Field">
 		
 	public <xsl:value-of select="@Type"/><xsl:text> </xsl:text>get<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>() {
 		return <xsl:value-of select="@Name"/>;

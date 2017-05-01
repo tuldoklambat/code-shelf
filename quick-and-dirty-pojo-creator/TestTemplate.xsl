@@ -4,24 +4,25 @@
 	<xsl:template match="/">
 		<xsl:apply-templates/>
 	</xsl:template>
-	<xsl:template match="Fields">
+	<xsl:template match="Class">
 		<xsl:param name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
 		<xsl:param name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'"/>
 import static org.hamcrest.CoreMatchers.*;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 /***
-* Created by <xsl:value-of select="@Author"/>.
+* Created by <xsl:value-of select="@Author"/> on <xsl:value-of select="@CreationDate"/>.
 */
-public class <xsl:value-of select="@ClassName"/>Test {
-	private <xsl:value-of select="@ClassName"/> classToTest;
+public class <xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>Test {
+	private <xsl:value-of select="@Name"/> classToTest;
 	
 	@Before
 	public void setup() {
-		classToTest = new <xsl:value-of select="@ClassName"/>();
+		classToTest = new <xsl:value-of select="@Name"/>();
 	}
-	<xsl:for-each select="Field">
+	<xsl:for-each select="/Class/Fields/Field">
 	@Test		
 	public void<xsl:text> </xsl:text>test_get<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>_should_return_the_same_value() {
 		classToTest.set<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>(<xsl:value-of select="@TestValue"/>);

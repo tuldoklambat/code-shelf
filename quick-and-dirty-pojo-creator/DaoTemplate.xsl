@@ -23,7 +23,7 @@ import java.util.Map;
 */
 public class <xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>Dao {
 	private final SimpleJdbcCall simpleJdbcCall;
-	private static final Logger LOG = LoggerFactory.getLogger(<xsl:value-of select="@Name"/>Dao.class);
+	private static final Logger LOG = LoggerFactory.getLogger(<xsl:value-of select="concat(translate(substring(@Name, 1, 1), $lowercase, $uppercase), substring(@Name, 2))"/>Dao.class);
 	
 	public <xsl:value-of select="@Name"/>Dao(DataSource dataSource) {
 		simpleJdbcCall = new SimpleJdbcCall(dataSource);
